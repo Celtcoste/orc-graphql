@@ -21,26 +21,12 @@ type App struct {
 
 var AppSetting = &App{}
 
-type PostgreSQL struct {
-	Host         string
-	Port         string
-	User         string
-	Password     string
-	DatabaseName string
-}
-
-var PostgresSetting = &PostgreSQL{}
-
 // Setup initialize the configuration instance
 func Setup() {
-	prodString := ""
 	if getenvStr("APP_ENV") == "TEST" {
 		err:= godotenv.Overload()
 		if err != nil {
 			log.Fatal("Error loading .env file")
-		}
-		if getenvStr("DB_ENV") == "PROD" {
-			prodString = "_PROD"
 		}
 	}
 
@@ -50,12 +36,6 @@ func Setup() {
 	AppSetting.LogFileExt = getenvStr("LOG_FILE_EXT")
 	AppSetting.TimeFormat = getenvStr("TIME_FORMAT")
 	AppSetting.RunMode = getenvStr("RUN_MODE")
-
-	PostgresSetting.Host = getenvStr("DB_HOST" + prodString)
-	PostgresSetting.Port = getenvStr("DB_PORT" + prodString)
-	PostgresSetting.User = getenvStr("DB_USER" + prodString)
-	PostgresSetting.Password = getenvStr("DB_PASSWORD" + prodString)
-	PostgresSetting.DatabaseName = getenvStr("DB_NAME" + prodString)
 }
 
 func getenvStr(key string) string {
