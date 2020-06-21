@@ -2,7 +2,7 @@ package logging
 
 import (
 	"fmt"
-	"github.com/Celtcoste/server-graphql/src/file"
+	"github.com/Celtcoste/orc-graphql/src/file"
 	"log"
 	"os"
 	"path/filepath"

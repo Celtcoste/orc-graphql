@@ -2,7 +2,7 @@ package logging
 
 import (
 	"fmt"
-	"github.com/Celtcoste/server-graphql/src/setting"
+	"github.com/Celtcoste/orc-graphql/src/setting"
 	"time"
 )
 

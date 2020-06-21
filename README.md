@@ -1,4 +1,4 @@
- # server-graphql
+ # orc-graphql
 
 GOLANG API template's module
 
@@ -7,7 +7,7 @@ GOLANG API template's module
 You just have to include this line inside a .go file
 
 ```
-import server_graphql "gitlab.com/fendcer-company/common/golang-modules/server-graphql"
+import server_graphql "gitlab.com/fendcer-company/common/golang-modules/orc-graphql"
 ```
 
 You can of course include any submodule of this module.
