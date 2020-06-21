@@ -1,4 +1,4 @@
-module github.com/Celtcoste/server-graphql
+module github.com/Celtcoste/orc-graphql
 
 go 1.13
 

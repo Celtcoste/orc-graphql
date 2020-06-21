@@ -1,16 +1,15 @@
-package server_graphql
+package orc_graphql
 
 import (
 	"flag"
 	"fmt"
 	"github.com/braintree/manners"
 	"github.com/gin-gonic/gin"
-	"github.com/Celtcoste/server-graphql/src/handlers"
-	"github.com/Celtcoste/server-graphql/src/health"
-	"github.com/Celtcoste/server-graphql/src/logging"
-	"github.com/Celtcoste/server-graphql/src/middleware"
-	"github.com/Celtcoste/server-graphql/src/postgresql"
-	"github.com/Celtcoste/server-graphql/src/setting"
+	"github.com/Celtcoste/orc-graphql/src/handlers"
+	"github.com/Celtcoste/orc-graphql/src/health"
+	"github.com/Celtcoste/orc-graphql/src/logging"
+	"github.com/Celtcoste/orc-graphql/src/middleware"
+	"github.com/Celtcoste/orc-graphql/src/setting"
 	"log"
 	"net/http"
 	"os"
