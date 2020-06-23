@@ -23,22 +23,22 @@ var AppSetting = &App{}
 
 // Setup initialize the configuration instance
 func Setup() {
-	if getenvStr("APP_ENV") == "TEST" {
+	if GetenvStr("APP_ENV") == "TEST" {
 		err:= godotenv.Overload()
 		if err != nil {
 			log.Fatal("Error loading .env file")
 		}
 	}
 
-	AppSetting.RuntimeRootPath = getenvStr("RUNTIME_ROOT_PATH")
-	AppSetting.LogSavePath = getenvStr("LOG_SAVE_PATH")
-	AppSetting.LogSaveName = getenvStr("LOG_SAVE_NAME")
-	AppSetting.LogFileExt = getenvStr("LOG_FILE_EXT")
-	AppSetting.TimeFormat = getenvStr("TIME_FORMAT")
-	AppSetting.RunMode = getenvStr("RUN_MODE")
+	AppSetting.RuntimeRootPath = GetenvStr("RUNTIME_ROOT_PATH")
+	AppSetting.LogSavePath = GetenvStr("LOG_SAVE_PATH")
+	AppSetting.LogSaveName = GetenvStr("LOG_SAVE_NAME")
+	AppSetting.LogFileExt = GetenvStr("LOG_FILE_EXT")
+	AppSetting.TimeFormat = GetenvStr("TIME_FORMAT")
+	AppSetting.RunMode = GetenvStr("RUN_MODE")
 }
 
-func getenvStr(key string) string {
+func GetenvStr(key string) string {
 	v := os.Getenv(key)
 	if v == "" {
 		log.Fatal("Environment variable %s doesn't exist", key)
@@ -47,7 +47,7 @@ func getenvStr(key string) string {
 }
 
 func getenvInt(key string) int {
-	s := getenvStr(key)
+	s := GetenvStr(key)
 	v, err := strconv.Atoi(s)
 	if err != nil {
 		log.Fatal(err)
@@ -56,7 +56,7 @@ func getenvInt(key string) int {
 }
 
 func getenvBool(key string) bool {
-	s := getenvStr(key)
+	s := GetenvStr(key)
 	v, err := strconv.ParseBool(s)
 	if err != nil {
 		log.Fatal(err)
