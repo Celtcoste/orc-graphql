@@ -11,13 +11,13 @@ func GraphqlRequest(requestInformation *GraphQLRequest) (interface{}, error) {
 	req := graphqlClient.NewRequest(requestInformation.Request)
 
 	// set any variables
-	for i := 0; i < len(requestInformation.variables); i++ {
-		req.Var(requestInformation.Variables[i].name, requestInformation.Variables[i].value)
+	for i := 0; i < len(requestInformation.Variables); i++ {
+		req.Var(requestInformation.Variables[i].Name, requestInformation.Variables[i].Value)
 	}
 	//req.Var("playerUid", playerUID)
 	// set header fields
-	for i := 0; i < len(requestInformation.headers); i++ {
-		req.Header.Set(requestInformation.Headers[i].name, requestInformation.Headers[i].value)
+	for i := 0; i < len(requestInformation.Headers); i++ {
+		req.Header.Set(requestInformation.Headers[i].Name, requestInformation.Headers[i].Value)
 	}
 	//req.Header.Set("Cache-Control", "no-cache")
 
