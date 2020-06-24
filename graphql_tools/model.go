@@ -3,12 +3,12 @@ package graphql_tools
 import "context"
 
 type GraphQLRequest struct {
-	url string
-	request string
-	variables []Content
-	headers []Content
-	ctx context.Context
-	resp *interface{}
+	Url string
+	Request string
+	Variables []Content
+	Headers []Content
+	Ctx context.Context
+	Resp *interface{}
 }
 
 type Content struct {

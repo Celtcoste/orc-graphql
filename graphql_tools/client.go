@@ -5,19 +5,19 @@ import (
 )
 
 func GraphqlRequest(requestInformation *GraphQLRequest) (interface{}, error) {
-	client := graphqlClient.NewClient(requestInformation.url)
+	client := graphqlClient.NewClient(requestInformation.Url)
 
 	// make a request
-	req := graphqlClient.NewRequest(requestInformation.request)
+	req := graphqlClient.NewRequest(requestInformation.Request)
 
 	// set any variables
 	for i := 0; i < len(requestInformation.variables); i++ {
-		req.Var(requestInformation.variables[i].name, requestInformation.variables[i].value)
+		req.Var(requestInformation.Variables[i].name, requestInformation.Variables[i].value)
 	}
 	//req.Var("playerUid", playerUID)
 	// set header fields
 	for i := 0; i < len(requestInformation.headers); i++ {
-		req.Header.Set(requestInformation.headers[i].name, requestInformation.headers[i].value)
+		req.Header.Set(requestInformation.Headers[i].name, requestInformation.Headers[i].value)
 	}
 	//req.Header.Set("Cache-Control", "no-cache")
 
@@ -30,8 +30,8 @@ func GraphqlRequest(requestInformation *GraphQLRequest) (interface{}, error) {
 		} `json:"playerInformation"`
 	}*/
 
-	if err := client.Run(requestInformation.ctx, req, requestInformation.resp); err != nil {
+	if err := client.Run(requestInformation.Ctx, req, requestInformation.Resp); err != nil {
 		return nil, err
 	}
-	return requestInformation.resp, nil
+	return requestInformation.Resp, nil
 }
