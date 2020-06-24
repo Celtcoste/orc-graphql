@@ -2,7 +2,7 @@ package graphql_tools
 
 import "context"
 
-type GraphQLRequest struct {
+type GraphQLStruct struct {
 	Url string
 	Request string
 	Variables []Content
