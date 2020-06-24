@@ -5,13 +5,13 @@ import "context"
 type GraphQLRequest struct {
 	url string
 	request string
-	variables []content
-	headers []content
+	variables []Content
+	headers []Content
 	ctx context.Context
 	resp *interface{}
 }
 
-type content struct {
+type Content struct {
 	name string
 	value string
 }
