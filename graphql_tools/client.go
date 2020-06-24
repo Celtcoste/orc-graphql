@@ -4,7 +4,7 @@ import (
 	graphqlClient "github.com/machinebox/graphql"
 )
 
-func GraphqlRequest(requestInformation *GraphQLRequest) (interface{}, error) {
+func GraphqlRequest(requestInformation *GraphQLStruct) (interface{}, error) {
 	client := graphqlClient.NewClient(requestInformation.Url)
 
 	// make a request
