@@ -8,7 +8,7 @@ type GraphQLStruct struct {
 	Variables []Content
 	Headers []Content
 	Ctx context.Context
-	Resp *interface{}
+	Resp interface{}
 }
 
 type Content struct {

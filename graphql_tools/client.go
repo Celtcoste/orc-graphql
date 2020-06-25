@@ -30,7 +30,7 @@ func GraphqlRequest(requestInformation *GraphQLStruct) (interface{}, error) {
 		} `json:"playerInformation"`
 	}*/
 
-	if err := client.Run(requestInformation.Ctx, req, requestInformation.Resp); err != nil {
+	if err := client.Run(requestInformation.Ctx, req, &requestInformation.Resp); err != nil {
 		return nil, err
 	}
 	return requestInformation.Resp, nil
