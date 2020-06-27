@@ -3,10 +3,9 @@ package uuid
 import (
 	"github.com/Celtcoste/orc-graphql/src/postgresql"
 	"github.com/google/uuid"
-	"log"
 )
 
-func GenerateUID(tableName string) *string {
+func GenerateUID(tableName string) (*string, error) {
 	uid := uuid.New()
 	var i = 0
 	err := postgresql.WithTransaction(func(tx postgresql.Transaction) error {
@@ -20,13 +19,11 @@ func GenerateUID(tableName string) *string {
 		return err
 	})
 	if err != nil {
-		log.Println("sql : ", err.Error())
-		return nil
+		return nil, err
 	}
 	if i == 1 {
 		return GenerateUID(tableName)
 	}
-	var resUID string
-	resUID = uid.String()
-	return &resUID
+	resUID := uid.String()
+	return &resUID, nil
 }
