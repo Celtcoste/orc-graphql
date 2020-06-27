@@ -5,7 +5,7 @@ import (
 	"github.com/google/uuid"
 )
 
-func GenerateUID(tableName string) (*string, error) {
+func GenerateUID(tableName string) (string, error) {
 	uid := uuid.New()
 	var i = 0
 	err := postgresql.WithTransaction(func(tx postgresql.Transaction) error {
@@ -19,11 +19,10 @@ func GenerateUID(tableName string) (*string, error) {
 		return err
 	})
 	if err != nil {
-		return nil, err
+		return "", err
 	}
 	if i == 1 {
 		return GenerateUID(tableName)
 	}
-	resUID := uid.String()
-	return &resUID, nil
+	return uid.String(), nil
 }
