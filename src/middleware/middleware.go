@@ -29,18 +29,3 @@ func GinContextToContextMiddleware() gin.HandlerFunc {
 		c.Next()
 	}
 }
-
-func Middleware(next http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		header := r.Header.Get("languageCode")
-		// if auth is not available then proceed to resolver
-		if header == "" {
-			next.ServeHTTP(w, r)
-		} else {
-			// merge userID into request context
-			ctx := context.WithValue(r.Context(), "languageCode", header)
-			next.ServeHTTP(w, r.WithContext(ctx))
-		}
-	})
-}
-
