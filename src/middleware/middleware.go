@@ -28,3 +28,7 @@ func GinContextToContextMiddleware() gin.HandlerFunc {
 		c.Next()
 	}
 }
+
+func test() {
+
+}
