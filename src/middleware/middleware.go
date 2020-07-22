@@ -4,7 +4,6 @@ import (
 	"context"
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"net/http"
 )
 
 func GinContextFromContext(ctx context.Context) (*gin.Context, error) {
