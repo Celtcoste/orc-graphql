@@ -57,7 +57,7 @@ func Server(graphqlHandler gin.HandlerFunc, playgroundHandler gin.HandlerFunc) {
 	gin.SetMode(setting.AppSetting.RunMode)
 	r := gin.Default()
 
-	r.Use(middleware.GinContextToContextMiddleware())
+	r.Use(middleware.Middleware())
 	r.POST("/query", graphqlHandler)
 	if setting.AppSetting.RunMode == "debug" {
 		r.GET("/", playgroundHandler)
