@@ -7,9 +7,7 @@ import (
 )
 
 func GinContextFromContext(ctx context.Context) (*gin.Context, error) {
-	ginContext := ctx.Value("languageCode")
-	fmt.Println("orc_server = ", ctx.Value("languageCode"))
-	fmt.Println("ginContext = ", ginContext)
+	ginContext := ctx.Value("GinContextKey")
 	if ginContext == nil {
 		err := fmt.Errorf("could not retrieve gin.Context")
 		return nil, err
@@ -25,7 +23,7 @@ func GinContextFromContext(ctx context.Context) (*gin.Context, error) {
 
 func GinContextToContextMiddleware() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		ctx := context.WithValue(c.Request.Context(), "languageCode", c)
+		ctx := context.WithValue(c.Request.Context(), "GinContextKey", c)
 		c.Request = c.Request.WithContext(ctx)
 		c.Next()
 	}
