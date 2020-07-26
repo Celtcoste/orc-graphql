@@ -8,6 +8,8 @@ import (
 
 func GinContextFromContext(ctx context.Context) (*gin.Context, error) {
 	ginContext := ctx.Value("languageCode")
+	fmt.Println("orc_server = ", ctx.Value("languageCode"))
+	fmt.Println("ginContext = ", ginContext)
 	if ginContext == nil {
 		err := fmt.Errorf("could not retrieve gin.Context")
 		return nil, err
